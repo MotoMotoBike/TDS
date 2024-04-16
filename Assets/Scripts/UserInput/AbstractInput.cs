@@ -1,6 +1,5 @@
 using System.Linq;
 using UnityEngine;
-using Weapons;
 
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Rotation))]

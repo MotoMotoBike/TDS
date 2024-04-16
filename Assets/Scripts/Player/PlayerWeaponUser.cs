@@ -1,13 +1,9 @@
 using System;
-using Weapons;
 
-namespace Player
+public class PlayerWeaponUser : WeaponUser
 {
-    public class PlayerWeaponUser : WeaponUser
+    private void FixedUpdate()
     {
-        private void FixedUpdate()
-        {
-            TryToFire();
-        }
+        TryToFire();
     }
 }

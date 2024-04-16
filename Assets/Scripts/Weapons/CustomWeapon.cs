@@ -1,7 +1,5 @@
-namespace Weapons
+
+public abstract class CustomWeapon : Weapon
 {
-    public abstract class CustomWeapon : Weapon
-    {
-        
-    }
+    
 }

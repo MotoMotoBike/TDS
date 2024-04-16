@@ -1,23 +1,21 @@
 using UnityEngine;
 
-namespace Weapons
+
+public abstract class WeaponUser : MonoBehaviour
 {
-    public abstract class WeaponUser : MonoBehaviour
+    [SerializeField] protected Weapon _currentWeapon;
+    [SerializeField] public Transform gunPort;
+
+    public void EquipWeapon(Weapon weapon)
     {
-        [SerializeField] protected Weapon _currentWeapon;
-        [SerializeField] public Transform gunPort;
+        _currentWeapon = weapon;
+    }
 
-        public void EquipWeapon(Weapon weapon)
+    public void TryToFire()
+    {
+        if (_currentWeapon != null)
         {
-            _currentWeapon = weapon;
-        }
-
-        public void TryToFire()
-        {
-            if (_currentWeapon != null)
-            {
-                _currentWeapon.TryToFire(gunPort);
-            }
+            _currentWeapon.TryToFire(gunPort);
         }
     }
 }
