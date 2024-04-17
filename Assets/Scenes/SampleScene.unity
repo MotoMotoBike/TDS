@@ -11744,7 +11744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829374135}
   - component: {fileID: 829374136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11942,7 +11942,7 @@ GameObject:
   - component: {fileID: 931820113}
   - component: {fileID: 931820115}
   - component: {fileID: 931820116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -84854,7 +84854,7 @@ GameObject:
   - component: {fileID: 1049931566}
   - component: {fileID: 1049931569}
   - component: {fileID: 1049931568}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85027,7 +85027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1199524242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPort
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

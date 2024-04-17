@@ -30,16 +30,15 @@ public class ProjectileBullet : MonoBehaviour
     }
 
     IEnumerator DestroyAfterDelay(){
-        Hide();
+        TurnOff();
         OnDestroy?.Invoke();
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 
-    void Hide(){
+    void TurnOff(){
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<SpriteRenderer>().enabled = false; 
         GetComponent<Movement>().enabled = false;
     }
     void DestroyBullet(){
