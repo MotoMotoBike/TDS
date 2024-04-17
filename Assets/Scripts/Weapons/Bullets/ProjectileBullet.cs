@@ -23,7 +23,7 @@ public class ProjectileBullet : MonoBehaviour
         if (collision.gameObject == _owner) return;
         
         Health health;
-        TryGetComponent(out health);
+        collision.gameObject.TryGetComponent(out health);
         health?.DealDamage((uint)damage);
         DestroyBullet();
         
