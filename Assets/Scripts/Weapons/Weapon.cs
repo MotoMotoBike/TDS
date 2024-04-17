@@ -3,5 +3,10 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public abstract void TryToFire(Transform gunPort);
+    public abstract bool TryToFire(Transform gunPort);
+
+    public void UnEquip()
+    {
+        Destroy(gameObject);
+    }
 }

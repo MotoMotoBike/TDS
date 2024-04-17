@@ -19,28 +19,29 @@ public class BulletShootWeapon : Weapon
 
     public int _amoInMagazine;
 
-    bool _isOnReload = false;
-    bool _isSleeping = false;
+    private bool _isOnReload;
+    private bool _isSleeping;
 
     public void Start(){
         _amoInMagazine = _magazineSize;
     }
 
-    public override void TryToFire(Transform gunPort)
+    public override bool TryToFire(Transform gunPort)
     {
-        if(_isSleeping || _isOnReload) return;
+        if(_isSleeping || _isOnReload) return false;
 
         var b = Instantiate(bullet, gunPort.position, gunPort.rotation);
-        b.Init(this.gameObject);
+        b.Init(gunPort.parent.gameObject);
         OnFire?.Invoke();
         _amoInMagazine--;
         _isSleeping = true;
         Invoke(nameof(Sleep), _sleepTime);
         
-        ReloadIfNeed();
+        StartReloadIfNeed();
+        return true;
     }
 
-    public void ReloadIfNeed(){
+    public void StartReloadIfNeed(){
         if(_amoInMagazine == 0){
 
             if(amoCount == 0){
@@ -63,6 +64,7 @@ public class BulletShootWeapon : Weapon
             _amoInMagazine += amoCount;
             amoCount = 0;
         }
+        OnReloadFinished?.Invoke();
         _isOnReload = false;
     }
 }

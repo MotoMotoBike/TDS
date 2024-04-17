@@ -12,7 +12,11 @@ public class PCInput : AbstractInput
 
     protected override Vector2 HandleRotationInput()
     {
-        return Rotation.GetNormalizedDirection(Input.mousePosition);
+        return rotation.GetNormalizedDirection(Input.mousePosition);
+    }
+    protected override bool HandleFireInput()
+    {
+        return Input.GetMouseButton(0);
     }
     protected override Vector2 HandleMovementInput()
     {

@@ -6,8 +6,8 @@ using UnityEngine;
 public abstract class AbstractInput : MonoBehaviour
 {
     [SerializeField] internal RuntimePlatform[] _availablePlatforms;
-    internal Movement Movement;
-    internal Rotation Rotation;
+    internal Movement movement;
+    internal Rotation rotation;
     internal WeaponUser weaponUser;
     private void Start()
     {
@@ -15,19 +15,25 @@ public abstract class AbstractInput : MonoBehaviour
         {
             RemoveInputSystem();
         }
-        
-        Movement = GetComponent<Movement>();
-        Rotation = GetComponent<Rotation>();
+
+        TryGetComponent(out movement);
+        TryGetComponent(out rotation);
+        TryGetComponent(out weaponUser);
     }
 
     private void Update()
     {
-        Movement.MoveAtDirection(HandleMovementInput());
-        Rotation.RotateAtDirection(HandleRotationInput());
+        movement.MoveAtDirection(HandleMovementInput());
+        rotation.RotateAtDirection(HandleRotationInput());
+        if (HandleFireInput())
+        {
+            weaponUser.TryToFire();
+        }
     }
 
     protected abstract Vector2 HandleMovementInput();
     protected abstract Vector2 HandleRotationInput();
+    protected abstract bool HandleFireInput();
     protected abstract void RemoveInputSystem();
 }
 

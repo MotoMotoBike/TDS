@@ -329,9 +329,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 12
-        width: 4
-        height: 4
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,27 +341,6 @@ TextureImporter:
       bones: []
       spriteID: 057803783723c7047a717ff0b1793e99
       internalID: -1241977413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IconsAndParticles_10
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 12
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 243ee9457445da94da14078a2138f074
-      internalID: 1025610070
       vertices: []
       indices: 
       edges: []
@@ -383,48 +362,6 @@ TextureImporter:
       bones: []
       spriteID: 9c6bbbaa3209b904c8f095d2667926b0
       internalID: -1301021044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IconsAndParticles_12
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4981381264a275458f89a2f8b7f52aa
-      internalID: -457022534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IconsAndParticles_13
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afe2ddc2f4119fb4ea96227ee8b95a9c
-      internalID: -1082220667
       vertices: []
       indices: 
       edges: []

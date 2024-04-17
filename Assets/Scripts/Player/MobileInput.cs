@@ -17,6 +17,11 @@ public class MobileInput : AbstractInput
         return RotationJoystick.Direction;
     }
 
+    protected override bool HandleFireInput()
+    {
+        return RotationJoystick.Direction != Vector2.zero;
+    }
+
     protected override Vector2 HandleMovementInput()
     {
         return MovementJoystick.Direction;

@@ -1,6 +1,4 @@
-using System;
-
-public class PlayerWeaponUser : WeaponUser
+public class AutoFireWeaponUser : WeaponUser
 {
     private void FixedUpdate()
     {
