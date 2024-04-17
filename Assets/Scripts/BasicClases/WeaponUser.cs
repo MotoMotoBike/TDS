@@ -1,10 +1,11 @@
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class WeaponUser : MonoBehaviour
 {
     [SerializeField] protected Weapon currentWeapon;
     [SerializeField] public Transform gunPort;
+    public UnityEvent OnShoot;
 
     public void EquipWeapon(Weapon weapon)
     {
@@ -13,12 +14,12 @@ public class WeaponUser : MonoBehaviour
         currentWeapon = weapon;
     }
 
-    public bool TryToFire()
+    public void TryToFire()
     {
         if (currentWeapon != null)
         {
-            return currentWeapon.TryToFire(gunPort);
+            if(currentWeapon.TryToFire(gunPort))
+            OnShoot?.Invoke();
         }
-        return false;
     }
 }

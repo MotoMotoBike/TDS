@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,10 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4515968850160577281, guid: da092656443f59246a8f2d87535e5695, type: 3}
-  _reloadTime: 2
-  _sleepTime: 0.5
-  _magazineSize: 5
-  amoCount: 10
+  _reloadTime: 1
+  _sleepTime: 0.3
+  _magazineSize: 10
+  amoCount: 50
   OnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -127,8 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8425ffd1dd7c9f4f85eed896a742439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeTime: 20
-  _weapon: {fileID: 2643073112316284200}
+  OnEquipped:
+    m_PersistentCalls:
+      m_Calls: []
+  lifeTime: 100
+  weapon: {fileID: 2643073112316284200}
 --- !u!61 &3493149816623471678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 0.97, y: 0.63}
   m_EdgeRadius: 0
 --- !u!50 &8009502872528463855
 Rigidbody2D:
