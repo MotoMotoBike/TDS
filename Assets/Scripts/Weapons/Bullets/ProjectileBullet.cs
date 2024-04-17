@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class ProjectileBullet : MonoBehaviour
 {
-    [SerializeField] float _lifeTime;
+    [SerializeField] float lifeTime;
+    [SerializeField] int damage;
     GameObject _owner;
     
     public void Init(GameObject owner){
@@ -15,12 +15,18 @@ public class ProjectileBullet : MonoBehaviour
     public UnityEvent OnDestroy;
 
     void Start(){
-        Invoke(nameof(DestroyBullet), _lifeTime);
+        Invoke(nameof(DestroyBullet), lifeTime);
     }
 
-    void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject != _owner)
-            DestroyBullet();
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == _owner) return;
+        
+        Health health;
+        TryGetComponent(out health);
+        health?.DealDamage((uint)damage);
+        DestroyBullet();
+        
     }
 
     IEnumerator DestroyAfterDelay(){

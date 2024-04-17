@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4515968850160577281}
   - component: {fileID: 4989751136490424399}
   - component: {fileID: 1585171329257187578}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FastBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742ab979885454644b00865b5a2ec79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeTime: 5
+  lifeTime: 4
+  damage: 10
   OnDestroy:
     m_PersistentCalls:
       m_Calls: []

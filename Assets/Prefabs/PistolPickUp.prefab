@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4515968850160577281, guid: da092656443f59246a8f2d87535e5695, type: 3}
   _reloadTime: 1
-  _sleepTime: 0.3
+  _sleepTime: 0.4
   _magazineSize: 10
   amoCount: 50
   OnFire:

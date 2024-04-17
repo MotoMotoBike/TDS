@@ -20,7 +20,7 @@ public class PCInput : AbstractInput
     }
     protected override Vector2 HandleMovementInput()
     {
-        return new Vector2(Input.GetAxis("HorizontalMovement"),Input.GetAxis("VerticalMovement"));
+        return new Vector2(Input.GetAxis("HorizontalMovement"),Input.GetAxis("VerticalMovement")).normalized;
     }
 }
 
