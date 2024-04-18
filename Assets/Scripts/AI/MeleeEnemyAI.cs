@@ -20,6 +20,7 @@ public class MeleeEnemyAI : EnemyAI
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRadius;
     [SerializeField] private float attackDelay; // Правильнее использовать класс WeaponUser, но не успею к дедлайну
+    [SerializeField] private float attackDamage; // Правильнее использовать класс WeaponUser, но не успею к дедлайну
     private bool _isAttackReady = true;
     private void Start()
     {
@@ -52,6 +53,7 @@ public class MeleeEnemyAI : EnemyAI
     private void FixedUpdate()
     {
         if (status != Status.Harassment) return;
+        if (target == null) return;
 
         var targetPosition = target.transform.position;
 
@@ -64,7 +66,9 @@ public class MeleeEnemyAI : EnemyAI
     internal override void Attack()
     {
         status = Status.Attack;
-        Physics.OverlapSphere(attackPoint.position, attackRadius);
+        var hits =Physics2D.OverlapCircleAll(attackPoint.position, attackRadius);
+        var player = hits.Where(h => h.CompareTag("Player")).Select(h => h.GetComponent<Health>()).FirstOrDefault();
+        player?.DealDamage((uint)attackDamage);
         _isAttackReady = false;
         OnAttack?.Invoke();
         Invoke(nameof(Reload),attackDelay);

@@ -29,6 +29,7 @@ public abstract class AbstractPickup : MonoBehaviour
     protected virtual void Equip(GameObject newOwner)
     {
         GetComponent<SpriteRenderer>().sprite = null;
+        OnEquipped?.Invoke();
         IsEquipped = true;
     }
 }

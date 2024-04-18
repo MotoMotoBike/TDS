@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7744078616040879294}
   - component: {fileID: 7606029410957476216}
   - component: {fileID: 5721955645510733888}
+  - component: {fileID: -6675202944639570804}
   m_Layer: 2
   m_Name: Enemy
   m_TagString: Untagged
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f4b43b77286ae42803da38e2759b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 3.5
   OnWalking:
     m_PersistentCalls:
       m_Calls: []
@@ -166,6 +167,7 @@ MonoBehaviour:
   attackPoint: {fileID: 2231488914559645061}
   attackRadius: 1.5
   attackDelay: 2
+  attackDamage: 10
 --- !u!114 &5721955645510733888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,9 +199,9 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5721955645510733888}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: DestroyGameObject
+      - m_Target: {fileID: -6675202944639570804}
+        m_TargetAssemblyTypeName: ItemDropper, Assembly-CSharp
+        m_MethodName: Drop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -209,6 +211,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-6675202944639570804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112168787132747654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa9677bdcb9475489df1d144ebf1a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 5470268414863212238, guid: ce8a32b68c956af40b06b15f86be1920, type: 3}
+  - {fileID: 8672718063479024590, guid: 5b9446539df1fd042b03c07d3a7d15ef, type: 3}
+  chance: 22
 --- !u!1 &5809484335597031471
 GameObject:
   m_ObjectHideFlags: 0

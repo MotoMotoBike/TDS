@@ -10,6 +10,7 @@ public class MobileInput : AbstractInput
     protected override void RemoveInputSystem()
     {
         Destroy(MovementJoystick.gameObject);
+        Destroy(RotationJoystick.gameObject);
         Destroy(this);
     }
     protected override Vector2 HandleRotationInput()

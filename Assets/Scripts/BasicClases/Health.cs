@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int maxHealth = 100;
     int _currentHealth;
-    public UnityEvent OnHealthChanged;
+    public UnityEvent<float> OnHealthChanged;
     public UnityEvent OnDeath;
 
     private void Start()
@@ -20,13 +20,9 @@ public class Health : MonoBehaviour
         {
             _currentHealth = 0;
             OnDeath?.Invoke();
+            Destroy(gameObject);
         }
-        OnHealthChanged?.Invoke();
-    }
-
-    public void DestroyGameObject()
-    {
-        Destroy(gameObject);
+        OnHealthChanged?.Invoke( _currentHealth/ (float)maxHealth);
     }
     public void Heal(int healAmount)
     {
@@ -35,7 +31,7 @@ public class Health : MonoBehaviour
         {
             _currentHealth = maxHealth;
         }
-        OnHealthChanged.Invoke();
+        OnHealthChanged.Invoke(_currentHealth / (float)maxHealth);
     }
 }
     

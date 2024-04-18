@@ -15,7 +15,7 @@ public class ProjectileBullet : MonoBehaviour
     public UnityEvent OnDestroy;
 
     void Start(){
-        Invoke(nameof(DestroyBullet), lifeTime);
+        Invoke(nameof(DestroyAfterDelay), lifeTime);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -25,23 +25,12 @@ public class ProjectileBullet : MonoBehaviour
         Health health;
         collision.gameObject.TryGetComponent(out health);
         health?.DealDamage((uint)damage);
-        DestroyBullet();
-        
-    }
-
-    IEnumerator DestroyAfterDelay(){
-        TurnOff();
         OnDestroy?.Invoke();
-        yield return new WaitForSeconds(2);
-        Destroy(gameObject);
+        Invoke(nameof(DestroyAfterDelay),2f);
     }
 
-    void TurnOff(){
-        GetComponent<Collider2D>().enabled = false;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Movement>().enabled = false;
-    }
-    void DestroyBullet(){
-        StartCoroutine(nameof(DestroyAfterDelay));
+    void DestroyAfterDelay(){
+        
+        Destroy(gameObject);
     }
 }

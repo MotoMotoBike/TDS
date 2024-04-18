@@ -1,5 +1,7 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 public class BulletShootWeapon : Weapon
@@ -11,6 +13,7 @@ public class BulletShootWeapon : Weapon
     [SerializeField] private int _magazineSize;
     [SerializeField] private int amoCount;
     
+    public UnityEvent<string> OnAmoChanged;
     public UnityEvent OnFire;
     public UnityEvent<float> OnReloadStarted;
     public UnityEvent OnReloadFinished;
@@ -22,6 +25,12 @@ public class BulletShootWeapon : Weapon
     private bool _isOnReload;
     private bool _isSleeping;
 
+    public override void Equip()
+    {
+        var hpBar = FindObjectsOfType<Text>().First(e => e.CompareTag("AmoCount"));
+        OnAmoChanged.AddListener(e => { hpBar.text = e.ToString(); });
+        OnAmoChanged?.Invoke($"{_amoInMagazine}/{_magazineSize}\n{amoCount}");
+    }
     public void Start(){
         _amoInMagazine = _magazineSize;
     }
@@ -34,6 +43,7 @@ public class BulletShootWeapon : Weapon
         b.Init(gunPort.parent.gameObject);
         OnFire?.Invoke();
         _amoInMagazine--;
+        OnAmoChanged?.Invoke($"{_amoInMagazine}/{_magazineSize}\n{amoCount}");
         _isSleeping = true;
         Invoke(nameof(Sleep), _sleepTime);
         
@@ -65,6 +75,7 @@ public class BulletShootWeapon : Weapon
             amoCount = 0;
         }
         OnReloadFinished?.Invoke();
+        OnAmoChanged?.Invoke($"{_amoInMagazine}/{_magazineSize}\n{amoCount}");
         _isOnReload = false;
     }
 }
