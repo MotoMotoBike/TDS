@@ -6,10 +6,10 @@ public class WeaponPickup : AbstractPickup
 
     protected override void Equip(GameObject newOwner)
     {
+        base.Equip(newOwner);
         WeaponUser weaponUser = newOwner.gameObject.GetComponent<WeaponUser>();
         if(weaponUser == null) return;
 
         weaponUser.EquipWeapon(weapon);
-        base.Equip(newOwner);
     }
 }

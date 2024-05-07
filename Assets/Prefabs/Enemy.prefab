@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f4b43b77286ae42803da38e2759b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 4.5
   OnWalking:
     m_PersistentCalls:
       m_Calls: []
@@ -160,10 +160,10 @@ MonoBehaviour:
           m_StringArgument: Attack
           m_BoolArgument: 0
         m_CallState: 2
-  maxTimeToChangeWalkDirection: 4
+  maxTimeToChangeWalkDirection: 2
   minTimeToChangeWalkDirection: 0
   rayCount: 20
-  sphereCastRadius: 1.58
+  sphereCastRadius: 5
   attackPoint: {fileID: 2231488914559645061}
   attackRadius: 1.5
   attackDelay: 2
@@ -226,7 +226,7 @@ MonoBehaviour:
   items:
   - {fileID: 5470268414863212238, guid: ce8a32b68c956af40b06b15f86be1920, type: 3}
   - {fileID: 8672718063479024590, guid: 5b9446539df1fd042b03c07d3a7d15ef, type: 3}
-  chance: 22
+  chance: 30
 --- !u!1 &5809484335597031471
 GameObject:
   m_ObjectHideFlags: 0

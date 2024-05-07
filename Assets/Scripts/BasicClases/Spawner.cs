@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Collections.Generic;
+using static UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefab;
+    [SerializeField] private Vector2[] positions;
     [SerializeField] [Range(0, 100)] float delay;
+    [SerializeField] [Range(0, 100)] int maxEntities;
     [SerializeField] private float safeArea;
+
+    private List<GameObject> entities = new List<GameObject>();
 
     private void Start()
     {
@@ -16,17 +21,25 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        var hits = Physics2D.OverlapCircleAll(transform.position, safeArea);
+        entities.RemoveAll(e=>e == null);
+        var posId = UnityEngine.Random.Range(0,positions.Length);
+        var hits = Physics2D.OverlapCircleAll(positions[posId], safeArea);
         var player = hits.Where(h => h.CompareTag("Player")).Select(h => h.GetComponent<Health>()).FirstOrDefault();
-        if (player == null)
+        if (player == null && entities.Count < maxEntities)
         {
-            Instantiate(prefab[Random.Range(0,prefab.Length)],transform.position,Quaternion.identity);
+            entities.Add(
+                Instantiate(prefab[UnityEngine.Random.Range(0,prefab.Length)],
+                positions[posId],
+                Quaternion.identity));
         }
         Invoke(nameof(Spawn),delay);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position,safeArea);
+        foreach (var pos in positions)
+        {
+            Gizmos.DrawWireSphere(pos,safeArea);
+        }
     }
 }

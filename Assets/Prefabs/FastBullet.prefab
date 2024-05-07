@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 4
-  damage: 5
+  damage: 3
   OnDestroy:
     m_PersistentCalls:
       m_Calls:
